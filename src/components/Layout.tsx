@@ -1,19 +1,23 @@
 import { Box, Grid, GridItem, Heading, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import font from "../font/Butler_Light-0737d51bdc90202fe832aaed043a2798.otf";
+import { UseIsMobileScreen } from "../hooks/IsMobileScreen";
 
 interface ILayout {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<ILayout> = (props) => {
+  const IsMobileScreen = UseIsMobileScreen()
+
   return (
-    <Grid templateColumns={"7fr 3fr"} minW={"100vw"} minH={"100vh"}>
+    <Grid templateColumns={IsMobileScreen ? "1fr" : "8fr 3fr"} minW={"100vw"} minH={"100vh"}>
+      {IsMobileScreen ? null : (
       <GridItem 
         position={"sticky"}
         top={0}
         overflow={"hidden"} 
-        borderRight={"10px solid #E2E8F0"}
+        borderRight={"5px solid #6d6d6d"}
         height={"100vh"} // Ensures the first GridItem doesn't get bigger
       >
         <Box 
@@ -58,7 +62,9 @@ const Layout: React.FC<ILayout> = (props) => {
           </Box>
         </Stack>
       </GridItem>
-      <GridItem overflow={"auto"} pos={"relative"} display={"flex"} flexDir={"column"} minH={"100vh"}>
+      )  
+    }
+      <GridItem overflow={"auto"} pos={"relative"} display={"flex"} flexDir={"column"} minH={"100vh"} mx={IsMobileScreen ? "10%" : ""}>
         <Box>
           {props.children}
         </Box>

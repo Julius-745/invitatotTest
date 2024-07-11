@@ -8,19 +8,18 @@ const Banner = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [audio] = useState(new Audio(music));
 
-    
     const handlePlay = () => {
       audio.play();
       setIsOpen(true)
     }
-       
-      
+
+
 
     return (
         <Stack 
-            backgroundImage={"https://ik.imagekit.io/drpq5xrph/Template%20Tiffany%20&%20Jared/1.%20Cover.jpg?updatedAt=1698222296920"} 
+            backgroundImage={"https://ik.imagekit.io/drpq5xrph/Template%20Tiffany%20&%20Jared/1.%20Cover.jpg?updatedAt=1698222296920"}
+            backgroundSize={"cover"}
             alignSelf={"center"}
-            overflow={"hidden"} 
             position={"relative"}
             height={"100vh"}
         >
@@ -57,7 +56,7 @@ const Banner = () => {
                   <Flex flexDir={"row"} justifyContent={"space-between"} minW={"50vh"}>
                     <Stack>test</Stack>
                     <Stack>
-                      <Text fontWeight={"bold"} fontFamily={"Poppins,serif"}>SCROLL TO BEGIN <ChevronDownIcon boxSize={10}/> </Text>
+                      <Text fontWeight={"bold"} fontFamily={"Poppins,serif"} mt={20}>SCROLL TO BEGIN <ChevronDownIcon boxSize={10}/> </Text>
                     </Stack>
                   </Flex>
                   :
