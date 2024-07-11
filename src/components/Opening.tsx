@@ -51,7 +51,6 @@ const Opening = () => {
                 </Stack>
             </Stack>
             <Stack gap={10}>
-          <Heading>{"What's New"}</Heading>
           <Flex
             align="center"
             justify="center"
