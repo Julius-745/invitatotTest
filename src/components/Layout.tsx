@@ -1,5 +1,6 @@
 import { Box, Grid, GridItem, Heading, Stack, Text } from "@chakra-ui/react";
 import React from "react";
+import font from "../font/Butler_Light-0737d51bdc90202fe832aaed043a2798.otf";
 
 interface ILayout {
   children: React.ReactNode;
@@ -44,7 +45,7 @@ const Layout: React.FC<ILayout> = (props) => {
           color={"white"}
         >
           <Heading fontSize={"xl"}>Wedding Announcement</Heading>
-          <Heading size={"4xl"} fontFamily={"Butler,sans-serif"} fontWeight={"light"} maxW={"20rem"}>
+          <Heading size={"4xl"} fontFamily={font} fontWeight={"light"} maxW={"20rem"}>
             Tiffany & Jared
           </Heading>
           <Box>
