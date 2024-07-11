@@ -36,7 +36,6 @@ const Opening = () => {
                 color={"white"}
                 textAlign={"center"}
                 alignItems={"center"}
-                mb={""}
                 textColor={"black"}
             >
                 <Box>
@@ -55,8 +54,7 @@ const Opening = () => {
             align="center"
             justify="center"
             position="relative"
-            py={{ base: "12rem", lg: "12rem" }}
-            
+            py={{ base: "15rem", lg: "18rem" }}
           >
             <IconButton
               icon={<ChevronLeftIcon />}
