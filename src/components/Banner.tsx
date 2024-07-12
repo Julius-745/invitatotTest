@@ -85,7 +85,7 @@ const Banner = () => {
                     </Stack>
                   </Flex>
                   :
-                  <Button size={"md"} variant={"solid"} color={"black"} bgColor={"white"} w={"20%"} onClick={() => handlePlay()}>Open Invitation</Button>
+                  <Button size={"md"} variant={"solid"} color={"black"} bgColor={"white"} w={"40%"} onClick={() => handlePlay()}>Open Invitation</Button>
                 }
             </Stack>
         </Stack>
