@@ -1,27 +1,52 @@
 import { Box, Stack, Heading, Button, Text, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {ChevronDownIcon} from "@chakra-ui/icons";
 import font from "../font/Butler_Light-0737d51bdc90202fe832aaed043a2798.otf";
 import music from "../music/music.mp3"
+import { IMAGE_CAROUSEL } from "../constant/ImageCarousel";
 
 const Banner = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [audio] = useState(new Audio(music));
+    const [isChange, setIsChange] = useState<boolean>(false)
+    const [activeImage, setActiveImage] = useState<number>(0)
+
+
 
     const handlePlay = () => {
       audio.play();
       setIsOpen(true)
     }
 
+    useEffect(() => {
+        if (isOpen) {
+            const interval = setInterval(() => {
+                setIsChange(true);
+                setTimeout(() => {
+                    setActiveImage((prevActiveImage) => 
+                        (prevActiveImage + 1) % IMAGE_CAROUSEL.length
+                    );
+                    setIsChange(false);
+                }, 500); // Time to fade out
+            }, 5000); // Change image every 5 seconds
+
+            return () => clearInterval(interval);
+        }
+    }, [isOpen === true]);
+
 
 
     return (
         <Stack 
-            backgroundImage={"https://ik.imagekit.io/drpq5xrph/Template%20Tiffany%20&%20Jared/1.%20Cover.jpg?updatedAt=1698222296920"}
+            backgroundImage={IMAGE_CAROUSEL[activeImage].src}
             backgroundSize={"cover"}
             alignSelf={"center"}
             position={"relative"}
             height={"100vh"}
+            style={{
+                filter: isChange ? "blur(10px)" : "none",
+                transition: "filter 0.5s ease-in-out"
+            }}
         >
             <Box 
                 backgroundColor="rgba(0, 0, 0, 0.5)" 
